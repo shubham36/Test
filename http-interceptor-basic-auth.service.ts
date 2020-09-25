@@ -10,9 +10,7 @@ export class HttpInterceptorBasicAuthService implements HttpInterceptor{
   constructor(private basicAuthenticationService:BasicAuthenticationService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler){
-    // let username = 'in28minutes'
-    // let password = 'dummy'
-    //let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
+    
     let basicAuthHeaderString = this.basicAuthenticationService.getAuthenticatedToken();
     let username = this.basicAuthenticationService.getAuthenticatedUser()
 
